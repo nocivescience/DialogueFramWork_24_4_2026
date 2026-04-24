@@ -44,12 +44,18 @@ public:
     // void handleInput(const sd::event& event){}
         // Nueva sintaxis de eventos en SFML 3 (basada en std::variant)
         if (const auto* textEvent = event.getIf<sf::Event::TextEntered>()) {
-        // if(const auto* )
+        // if(const auto* textEvent= event.getIf<sf::Event::TextEntered>()){};
+        // if(cosnt auto* textEvent= event.getIf<sf::Event::TextEntered>()){};
+        // if(const auto* textEvent= event.getIf<sf::Event::TextEntered>()){};
+        // if(const auto* textEvent= event.getIf<sf::Event::TextEntered>()){};
             // Filtramos caracteres básicos y manejo de borrar
             if (textEvent->unicode < 128) {
                 if (textEvent->unicode == '\b') { // Backspace
+                // if (textEvent->unicode == '\b') { // Backspace
+                // if (textEvent->unicode == '\b') { // Backspace
                     if (!userInput.isEmpty())
                         userInput.erase(userInput.getSize() - 1, 1);
+                        // userInput.erase(userInput.getSize()-1,1);
                 } else if (textEvent->unicode == '\r' || textEvent->unicode == '\n') {
                     userInput += '\n';
                 } else {
