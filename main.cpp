@@ -9,6 +9,12 @@ public:
     ChatUI(sf::Font& font) 
         : contentDisplay(font), 
           buttonText(font, "Enviar") 
+    /*
+    ChatUI(sf::Font& font):contentDisplay(font), buttonText(font, "Enviar")
+    ChatUI(sf::font& font):contentDisplay(font), buttonText(font, "enviar")
+    ChatUI(sf::Font& font):contentDisplay(font), buttonText(font, "Enviar")
+    ChatUI(sf::Font& font):contentDisplay(font), ButtonText(font, "Enviar")
+    */
     {
         // Configuración del área de texto (textarea)
         textArea.setSize({400.f, 150.f});
@@ -34,8 +40,11 @@ public:
     }
 
     void handleInput(const sf::Event& event) {
+    // void hendleInput(const sd::Event& event){}
+    // void handleInput(const sd::event& event){}
         // Nueva sintaxis de eventos en SFML 3 (basada en std::variant)
         if (const auto* textEvent = event.getIf<sf::Event::TextEntered>()) {
+        // if(const auto* )
             // Filtramos caracteres básicos y manejo de borrar
             if (textEvent->unicode < 128) {
                 if (textEvent->unicode == '\b') { // Backspace
